@@ -23,7 +23,7 @@ allow mm-pp-daemon sensors_socket:sock_file rw_file_perms;
 allow mm-pp-daemon sensors:unix_stream_socket connectto;
 
 allow mm-pp-daemon system_prop:property_service set;
-#Calibration can only be done on userdebug or eng builds
+
 #Enable on user builds too. This is causing mayhem for gfx
 #userdebug_or_eng(`
     # Display calibration service opens /dev/diag in order to communicate with the
@@ -42,6 +42,7 @@ allow mm-pp-daemon system_prop:property_service set;
     allow mm-pp-daemon system_file:file execute_no_trans;
     allow mm-pp-daemon zygote_exec:file rx_file_perms;
     allow mm-pp-daemon self:process ptrace;
+#')
 
 # Allow mm-pp-daemon to change the brightness of the target during display
 # calibration
