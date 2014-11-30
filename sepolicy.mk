@@ -4,6 +4,7 @@ BOARD_SEPOLICY_DIRS += \
        device/qcom/sepolicy/common \
        device/qcom/sepolicy/test \
        device/qcom/sepolicy/$(TARGET_BOARD_PLATFORM)
+       device/qcom/sepolicy/sony
 
 BOARD_SEPOLICY_UNION += \
        genfs_contexts \
@@ -91,6 +92,11 @@ BOARD_SEPOLICY_UNION += \
        vold.te
 
 -include device/qcom/sepolicy/$(TARGET_BOARD_PLATFORM)/Android.mk
+BOARD_SEPOLICY_UNION += \
+       sct.te \
+       ta_qmi.te \
+       tad.te \
+       thermanager.te
 
 # Compile sensor pilicy only for SSC targets
 SSC_TARGET_LIST := apq8084
