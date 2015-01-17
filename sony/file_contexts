@@ -1,5 +1,9 @@
 /dev/pn547                             u:object_r:nfc_device:s0
 
+/dev/block/platform/msm_sdcc\.1/by-name/modemst1    u:object_r:modem_efs_partition_device:s0
+/dev/block/platform/msm_sdcc\.1/by-name/modemst2    u:object_r:modem_efs_partition_device:s0
+/dev/block/platform/msm_sdcc\.1/by-name/fsg         u:object_r:modem_efs_partition_device:s0
+
 # CPU governor controls
 /dev/socket/mpdecision(/.*)?           u:object_r:mpctl_socket:s0
 /dev/socket/mpctl                      u:object_r:mpctl_socket:s0
