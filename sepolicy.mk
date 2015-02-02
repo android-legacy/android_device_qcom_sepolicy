@@ -35,6 +35,7 @@ BOARD_SEPOLICY_UNION += \
        qmi_test_service.te \
        irsc_util.te \
        netd.te \
+       sct.te \
        rild.te \
        diag.te \
        diag_test.te \
@@ -51,6 +52,10 @@ BOARD_SEPOLICY_UNION += \
        mm-qcamerad.te \
        domain.te \
        init.te \
+       suntrold.te \
+       tad.te \
+       taimport.te \
+       ta_qmi.te \
        tee.te \
        thermanager.te \
        time_daemon.te \
