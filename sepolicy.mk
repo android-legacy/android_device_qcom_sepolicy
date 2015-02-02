@@ -15,6 +15,7 @@ BOARD_SEPOLICY_UNION += \
        vold.te \
        ueventd.te \
        file.te \
+       mac-update.te \
        property.te \
        untrusted_app.te \
        drmserver.te \
