@@ -3,7 +3,8 @@ BOARD_SEPOLICY_DIRS += \
        device/qcom/sepolicy \
        device/qcom/sepolicy/common \
        device/qcom/sepolicy/test \
-       device/qcom/sepolicy/$(TARGET_BOARD_PLATFORM)
+       device/qcom/sepolicy/$(TARGET_BOARD_PLATFORM) \
+       device/qcom/sepolicy/sony
 
 BOARD_SEPOLICY_UNION += \
        genfs_contexts \
@@ -12,10 +13,8 @@ BOARD_SEPOLICY_UNION += \
        property_contexts \
        te_macros \
        device.te \
-       vold.te \
        ueventd.te \
        file.te \
-       mac-update.te \
        property.te \
        untrusted_app.te \
        drmserver.te \
@@ -35,7 +34,6 @@ BOARD_SEPOLICY_UNION += \
        qmi_test_service.te \
        irsc_util.te \
        netd.te \
-       sct.te \
        rild.te \
        diag.te \
        diag_test.te \
@@ -53,11 +51,8 @@ BOARD_SEPOLICY_UNION += \
        domain.te \
        init.te \
        suntrold.te \
-       tad.te \
        taimport.te \
-       ta_qmi.te \
        tee.te \
-       thermanager.te \
        time_daemon.te \
        rmt_storage.te \
        rfs_access.te \
@@ -102,6 +97,11 @@ BOARD_SEPOLICY_UNION += \
        vold.te
 
 -include device/qcom/sepolicy/$(TARGET_BOARD_PLATFORM)/Android.mk
+BOARD_SEPOLICY_UNION += \
+       sct.te \
+       ta_qmi.te \
+       tad.te \
+       thermanager.te
 
 # Compile sensor pilicy only for SSC targets
 SSC_TARGET_LIST := apq8084

@@ -21,6 +21,7 @@ allow mediaserver camera_data_file:sock_file write;
 userdebug_or_eng(`
   allow mediaserver camera_data_file:dir rw_dir_perms;
   allow mediaserver camera_data_file:file create_file_perms;
+  allow mediaserver debugfs:file rw_file_perms;
 ')
 
 allow mediaserver sysfs_esoc:dir r_dir_perms;
@@ -30,6 +31,7 @@ allow mediaserver system_app_data_file:file rw_file_perms;
 allow mediaserver mpctl_socket:dir r_dir_perms;
 unix_socket_send(mediaserver, mpctl, mpdecision)
 unix_socket_connect(mediaserver, mpctl, mpdecision)
+unix_socket_connect(mediaserver, thermal, thermal-engine)
 
 # access to perflock
 allow mediaserver mpctl_socket:dir r_dir_perms;
@@ -38,3 +40,7 @@ unix_socket_connect(mediaserver, mpctl, perfd)
 
 # for thermal sock files
 unix_socket_connect(mediaserver, thermal, thermal-engine)
+
+# Allow mediaserver to search and get the widevine, playready firmwares
+allow mediaserver firmware_file:dir search;
+allow mediaserver firmware_file:file { read getattr open };
